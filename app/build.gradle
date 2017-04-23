@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "theo.mvp"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "0.1"
@@ -22,7 +22,7 @@ android {
 }
 
 ext {
-    supportVersion = '25.0.0'
+    supportVersion = '25.3.1'
     daggerVersion = '2.7'
 }
 
@@ -33,6 +33,7 @@ dependencies {
 
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
     compile "com.google.dagger:dagger:$daggerVersion"
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.jakewharton:butterknife:8.4.0'
