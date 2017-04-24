@@ -3,25 +3,22 @@ package theo.mvp;
 
 import android.app.Application;
 
-import theo.mvp.dagger.DaggerLoginComponent;
-import theo.mvp.dagger.LoginComponent;
-import theo.mvp.dagger.LoginModule;
+import theo.mvp.dagger.ApplicationComponent;
+import theo.mvp.dagger.DaggerApplicationComponent;
 
 public class MvpApplication extends Application {
 
-    private LoginComponent component;
+    private ApplicationComponent component;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerLoginComponent.builder()
-                .loginModule(new LoginModule(this))
-                .build();
+        component = DaggerApplicationComponent.create();
         component.inject(this);
     }
 
-    public LoginComponent getComponent() {
+    public ApplicationComponent getComponent() {
         return component;
     }
 }
