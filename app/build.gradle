@@ -30,20 +30,21 @@ android {
 ext {
     supportVersion = '25.3.1'
     daggerVersion = '2.7'
+    butterknifeVersion = '8.5.1'
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.google.dagger:dagger:$daggerVersion"
     compile 'com.google.code.gson:gson:2.7'
-    compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'net.danlew:android.joda:2.8.2'
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
 
     compile 'io.reactivex:rxjava:1.2.9'
     compile 'io.reactivex:rxandroid:1.2.1'

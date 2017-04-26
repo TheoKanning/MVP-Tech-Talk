@@ -2,6 +2,8 @@ package theo.mvp.ui.signin;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
@@ -17,8 +19,10 @@ import theo.mvp.api.SignInApi;
 
 public class SignInActivity extends Activity implements SignInView{
 
+    @BindView(R.id.background) View background;
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
+    @BindView(R.id.sign_in_success) View successMessage;
 
     @Inject SignInApi signInApi;
     @Inject SignInPresenter presenter;
@@ -45,12 +49,12 @@ public class SignInActivity extends Activity implements SignInView{
 
     @Override
     public void displaySuccess() {
-
+        successMessage.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void displayError() {
-
+        Snackbar.make(background, R.string.sign_in_failure, Snackbar.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.sign_in)
