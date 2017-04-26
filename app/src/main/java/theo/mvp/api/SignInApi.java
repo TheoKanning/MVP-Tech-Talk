@@ -11,7 +11,8 @@ import rx.Observable;
 @Singleton
 public class SignInApi {
 
-    Observable<Boolean> signIn(String email, String password) {
-        return Observable.just(true);
+    public Observable<Boolean> signIn(String email, String password) {
+        boolean correct = email.equals("tkanning@nerdery.com") && password.equals("password");
+        return Observable.just(correct);
     }
 }

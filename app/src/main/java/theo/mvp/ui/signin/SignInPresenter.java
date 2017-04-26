@@ -11,4 +11,17 @@ public class SignInPresenter extends BasePresenter<SignInView> {
     public SignInPresenter(SignInApi signInApi) {
         this.signInApi = signInApi;
     }
+
+    void submit(String email, String password) {
+        signInApi.signIn(email, password)
+                .subscribe(this::displaySignInResult);
+    }
+
+    private void displaySignInResult(boolean success) {
+        if (success) {
+            getView().displaySuccess();
+        } else {
+            getView().displayError();
+        }
+    }
 }

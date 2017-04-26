@@ -15,7 +15,7 @@ import theo.mvp.MvpApplication;
 import theo.mvp.R;
 import theo.mvp.api.SignInApi;
 
-public class SignInActivity extends Activity {
+public class SignInActivity extends Activity implements SignInView{
 
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
@@ -31,7 +31,27 @@ public class SignInActivity extends Activity {
         ButterKnife.bind(this);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.attachView(this);
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        presenter.detachView();
+    }
+
+    @Override
+    public void displaySuccess() {
+
+    }
+
+    @Override
+    public void displayError() {
+
+    }
 
     @OnClick(R.id.sign_in)
     void onLogInClicked(){
@@ -48,6 +68,6 @@ public class SignInActivity extends Activity {
     }
 
     private void submit(){
-
+        presenter.submit(email.getText().toString(), password.getText().toString());
     }
 }
