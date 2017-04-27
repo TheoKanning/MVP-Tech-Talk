@@ -12,7 +12,8 @@ public class SignInPresenter extends BasePresenter<SignInView> {
         this.signInApi = signInApi;
     }
 
-    void submit(String email, String password) {
+    // public so that this can be mocked
+    public void submit(String email, String password) {
         signInApi.signIn(email, password)
                 .subscribe(this::displaySignInResult);
     }

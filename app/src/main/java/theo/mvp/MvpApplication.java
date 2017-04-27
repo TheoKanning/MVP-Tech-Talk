@@ -3,12 +3,12 @@ package theo.mvp;
 
 import android.app.Application;
 
-import theo.mvp.dagger.ApplicationComponent;
 import theo.mvp.dagger.DaggerApplicationComponent;
+import theo.mvp.dagger.MvpGraph;
 
 public class MvpApplication extends Application {
 
-    private ApplicationComponent component;
+    protected MvpGraph component;
 
     @Override
     public void onCreate() {
@@ -18,7 +18,7 @@ public class MvpApplication extends Application {
         component.inject(this);
     }
 
-    public ApplicationComponent getComponent() {
+    public MvpGraph getComponent() {
         return component;
     }
 }
