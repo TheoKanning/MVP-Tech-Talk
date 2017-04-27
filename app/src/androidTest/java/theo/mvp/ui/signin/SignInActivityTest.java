@@ -42,7 +42,7 @@ public class SignInActivityTest {
         component.inject(this);
 
         // tell test application to use mock component
-        app.setHyVeeGraph(component);
+        app.setMvpGraph(component);
 
         // launch activity after mock component is set
         activityTestRule.launchActivity(null);

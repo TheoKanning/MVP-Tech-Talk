@@ -15,7 +15,6 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import theo.mvp.MvpApplication;
 import theo.mvp.R;
-import theo.mvp.api.SignInApi;
 
 public class SignInActivity extends Activity implements SignInView{
 
@@ -24,7 +23,6 @@ public class SignInActivity extends Activity implements SignInView{
     @BindView(R.id.password) EditText password;
     @BindView(R.id.sign_in_success) View successMessage;
 
-    @Inject SignInApi signInApi;
     @Inject SignInPresenter presenter;
 
     @Override

@@ -7,7 +7,7 @@ import theo.mvp.dagger.MvpGraph;
  */
 public class TestApplication extends MvpApplication {
 
-    public void setHyVeeGraph(MvpGraph mvpGraph) {
+    public void setMvpGraph(MvpGraph mvpGraph) {
         this.component = mvpGraph;
     }
 }

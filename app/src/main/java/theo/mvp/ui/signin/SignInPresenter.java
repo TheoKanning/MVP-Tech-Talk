@@ -1,6 +1,8 @@
 package theo.mvp.ui.signin;
 
 
+import android.support.annotation.VisibleForTesting;
+
 import theo.mvp.api.SignInApi;
 import theo.mvp.base.BasePresenter;
 
@@ -12,7 +14,7 @@ public class SignInPresenter extends BasePresenter<SignInView> {
         this.signInApi = signInApi;
     }
 
-    // public so that this can be mocked
+    @VisibleForTesting
     public void submit(String email, String password) {
         signInApi.signIn(email, password)
                 .subscribe(this::displaySignInResult);
